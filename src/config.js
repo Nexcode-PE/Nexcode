@@ -74,7 +74,43 @@ window.NEXCODE = {
       imageAlt: 'Logo Nexcode para soluciones digitales',
     },
   ],
-  projects: [],
+  projects: [
+    {
+      id: 'ushas-peru',
+      name: 'Ushas Perú',
+      category: 'web',
+      categoryLabel: 'E-commerce',
+      status: 'MVP navegable',
+      image: 'public/images/projects/ushas-hero.webp',
+      imageAlt: 'Campaña de maquillaje de Ushas Perú',
+      summary:
+        'MVP de comercio electrónico para Ushas Perú, diseñado como una tienda digital preparada para evolucionar hacia una plataforma completa.',
+      objective:
+        'Crear una experiencia de tienda pública navegable y una base técnica que permita incorporar gestión administrativa, APIs y flujos de compra en nuevas etapas.',
+      problem:
+        'El proyecto necesitaba una presencia de e-commerce clara, adaptable y lista para crecer sin comprometer la estructura inicial.',
+      solution:
+        'Se desarrolló un storefront público con datos de demostración y una organización modular que separa la interfaz, los contratos de dominio y los adaptadores de datos.',
+      features: [
+        'Storefront público navegable',
+        'Datos de demostración reemplazables por una API',
+        'Base preparada para panel administrativo y servicios backend',
+      ],
+      architecture:
+        'Monorepo con aplicación storefront en Vue 3, paquetes compartidos para tipos y datos de demostración. Las aplicaciones de administración y API permanecen reservadas para la siguiente evolución del producto.',
+      decisions: [
+        'Separar contratos y datos de demostración para facilitar la integración futura',
+        'Mantener el storefront independiente de la implementación final del backend',
+        'Organizar el proyecto como monorepo para permitir crecimiento por módulos',
+      ],
+      technologies: ['Vue.js', 'Vite', 'pnpm', 'Turborepo'],
+      participants: ['Italo Bruno Ramos Sotomayor'],
+      links: {
+        demo: 'https://ushas-peru.vercel.app/',
+        repository: 'https://github.com/BrunoRasot/Ushas',
+      },
+    },
+  ],
   team: [
     {
       name: 'Italo Bruno Ramos Sotomayor',

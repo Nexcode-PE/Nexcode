@@ -1946,3 +1946,133 @@ textarea {
     font-size: 14px;
   }
 }
+
+/* Interaction polish: these enhancements stay functional when JavaScript is unavailable. */
+.page-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 9% 18%, color-mix(in srgb, var(--blue) 11%, transparent), transparent 25rem),
+    radial-gradient(circle at 92% 43%, color-mix(in srgb, var(--cyan) 8%, transparent), transparent 28rem);
+}
+.site-header {
+  transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.site-header.is-scrolled {
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  box-shadow: 0 12px 28px rgba(1, 8, 20, 0.12);
+}
+.site-progress {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--blue), var(--cyan), var(--green));
+  will-change: transform;
+}
+.primary-nav > a:not(.button) {
+  position: relative;
+  padding-block: 7px;
+}
+.primary-nav > a:not(.button)::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: '';
+  background: var(--cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+.primary-nav > a:not(.button):hover::after,
+.primary-nav > a:not(.button).is-active::after {
+  transform: scaleX(1);
+}
+.primary-nav > a:not(.button).is-active {
+  color: var(--text);
+}
+.service-card,
+.project-card,
+.team-card,
+.technology-card,
+.process-grid article {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.service-card:hover,
+.project-card:hover,
+.team-card:hover,
+.technology-card:hover,
+.process-grid article:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--cyan) 45%, var(--line));
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14);
+}
+.scroll-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 12;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--cyan) 50%, var(--line));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--panel) 92%, transparent);
+  color: var(--cyan);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.scroll-top:hover {
+  background: var(--panel2);
+  transform: translateY(8px);
+}
+.scroll-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 700px) {
+  .scroll-top {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .primary-nav > a:not(.button)::after,
+  .service-card,
+  .project-card,
+  .team-card,
+  .technology-card,
+  .process-grid article,
+  .scroll-top,
+  .reveal-item {
+    transition: none;
+  }
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -139,6 +139,36 @@ window.NEXCODE = {
       website: '',
     },
     {
+      name: 'Piero Laos',
+      role: 'Desarrollador de Software',
+      specialty: 'Desarrollo Full Stack & Soluciones Digitales',
+      bio: [
+        'Soy desarrollador de software en formación, enfocado en la creación de aplicaciones web, sistemas empresariales y soluciones digitales a medida. Trabajo con tecnologías modernas como Vue.js, Nuxt, TypeScript, Node.js y Express, adaptando las herramientas a las necesidades de cada proyecto.',
+        'Me enfoco en el desarrollo frontend y backend, la integración de APIs REST, el diseño de bases de datos relacionales, la creación de aplicaciones móviles con Flutter y la integración de servicios en la nube mediante Microsoft Azure y Firebase. También aplico buenas prácticas de seguridad, pruebas de software y control de calidad para desarrollar soluciones funcionales, mantenibles y responsive.',
+      ],
+      photo: 'public/images/team/piero-laos.png',
+      areas: [
+        'Aplicaciones Web',
+        'Desarrollo Full Stack',
+        'Sistemas Empresariales',
+        'Vue.js y Nuxt',
+        'TypeScript y JavaScript',
+        'Node.js y Express',
+        'APIs REST',
+        'Bases de Datos MySQL',
+        'Aplicaciones Móviles con Flutter',
+        'Microsoft Azure y Firebase',
+        'Seguridad Web',
+        'Pruebas de Software',
+        'Integraciones',
+        'Responsive Design',
+        'Calidad del Software',
+      ],
+      github: 'https://github.com/pieroLaos18',
+      linkedin: '',
+      website: '',
+    },
+    {
       name: 'José Luis Carbajal Magallanes',
       role: 'Desarrollador Full Stack | Backend | Bases de datos',
       specialty: 'APIs REST · Bases de datos · Despliegues',
@@ -165,6 +195,7 @@ window.NEXCODE = {
     { name: 'Next.js', category: 'Frontend', symbol: '▲', icon: 'public/images/tech/nextdotjs.svg', description: 'Framework React para aplicaciones web.' },
     { name: 'Angular', category: 'Frontend', symbol: 'A', icon: 'public/images/tech/angular.svg', description: 'Framework para aplicaciones web.' },
     { name: 'Vue.js', category: 'Frontend', symbol: 'V', icon: 'public/images/tech/vuedotjs.svg', description: 'Framework progresivo para interfaces.' },
+    { name: 'FullCalendar', category: 'Frontend', symbol: '▦', icon: 'public/images/tech/fullcalendar.svg', description: 'Calendario interactivo para visualizar y gestionar citas.' },
     { name: 'TypeScript', category: 'Frontend', symbol: 'TS', icon: 'public/images/tech/typescript.svg', description: 'JavaScript con tipado estático.' },
     { name: 'JavaScript', category: 'Frontend', symbol: 'JS', icon: 'public/images/tech/javascript.svg', description: 'Lenguaje para experiencias web dinámicas.' },
     { name: 'Vite', category: 'Frontend', symbol: '⚡', icon: 'public/images/tech/vite.svg', description: 'Herramienta de desarrollo web rápida.' },
@@ -174,6 +205,13 @@ window.NEXCODE = {
 
     // Backend & Cloud
     { name: 'Node.js', category: 'Backend & Cloud', symbol: 'N', icon: 'public/images/tech/nodedotjs.svg', description: 'Entorno de ejecución para JavaScript.' },
+    { name: 'Express.js', category: 'Backend & Cloud', symbol: 'Ex', icon: 'public/images/tech/express.svg', description: 'Framework para crear aplicaciones y APIs con Node.js.' },
+    { name: 'Microsoft Azure', category: 'Backend & Cloud', symbol: 'Az', icon: 'public/images/tech/azure.svg', description: 'Plataforma cloud para desplegar y operar servicios digitales.' },
+    { name: 'Firebase', category: 'Backend & Cloud', symbol: 'Fi', icon: 'public/images/tech/firebase.svg', description: 'Plataforma de servicios cloud para aplicaciones.' },
+    { name: 'Firebase Authentication', category: 'Backend & Cloud', symbol: 'Auth', icon: 'public/images/tech/firebase.svg', description: 'Autenticación de usuarios para aplicaciones.' },
+    { name: 'Firebase Cloud Messaging', category: 'Backend & Cloud', symbol: 'FCM', icon: 'public/images/tech/firebase.svg', description: 'Envío de notificaciones a aplicaciones y dispositivos.' },
+    { name: 'Firebase Storage', category: 'Backend & Cloud', symbol: 'FS', icon: 'public/images/tech/firebase.svg', description: 'Almacenamiento de archivos para aplicaciones.' },
+    { name: 'Socket.IO', category: 'Backend & Cloud', symbol: '↔', icon: 'public/images/tech/socketio.svg', description: 'Comunicación en tiempo real entre clientes y servidores.' },
     { name: 'Supabase', category: 'Backend & Cloud', symbol: 'S', icon: 'public/images/tech/supabase.svg', description: 'Plataforma backend basada en Postgres.' },
     { name: 'Edge Functions', category: 'Backend & Cloud', symbol: 'ƒ', description: 'Funciones serverless de baja latencia.' },
     { name: 'REST APIs', category: 'Backend & Cloud', symbol: '↔', description: 'Interfaces para conectar servicios.' },
@@ -185,6 +223,8 @@ window.NEXCODE = {
 
     // Móvil
     { name: 'Flutter', category: 'Móvil', symbol: 'F', icon: 'public/images/tech/flutter.svg', description: 'Framework para apps multiplataforma.' },
+    { name: 'Dart', category: 'Móvil', symbol: 'Da', icon: 'public/images/tech/dart.svg', description: 'Lenguaje utilizado para desarrollar aplicaciones con Flutter.' },
+    { name: 'Lectura de códigos QR', category: 'Móvil', symbol: 'QR', icon: 'public/images/tech/qrcode.svg', description: 'Lectura de códigos QR desde dispositivos móviles.' },
 
     // Bases de datos
     { name: 'PostgreSQL', category: 'Bases de datos', symbol: 'PG', icon: 'public/images/tech/postgresql.svg', description: 'Base de datos relacional.' },
@@ -192,6 +232,7 @@ window.NEXCODE = {
     { name: 'Supabase Database', category: 'Bases de datos', symbol: 'S', icon: 'public/images/tech/supabase.svg', description: 'Base de datos Postgres gestionada.' },
     { name: 'Row Level Security (RLS)', category: 'Bases de datos', symbol: 'RLS', description: 'Control de acceso a nivel de fila.' },
     { name: 'MySQL', category: 'Bases de datos', symbol: 'MY', icon: 'public/images/tech/mysql.svg', description: 'Sistema de gestión de bases de datos.' },
+    { name: 'Cloud Firestore', category: 'Bases de datos', symbol: 'Fs', icon: 'public/images/tech/firebase.svg', description: 'Base de datos cloud NoSQL para aplicaciones.' },
     { name: 'SQLite', category: 'Bases de datos', symbol: 'SQ', icon: 'public/images/tech/sqlite.svg', description: 'Base de datos ligera y embebida.' },
     { name: 'Entity Framework Core', category: 'Bases de datos', symbol: 'EF', icon: 'public/images/tech/dotnet.svg', description: 'ORM para .NET.' },
     { name: 'Alembic', category: 'Bases de datos', symbol: 'AL', description: 'Migraciones para SQLAlchemy.' },
@@ -202,10 +243,12 @@ window.NEXCODE = {
     { name: 'npm', category: 'Herramientas', symbol: 'npm', icon: 'public/images/tech/npm.svg', description: 'Gestor de paquetes de JavaScript.' },
     { name: 'Postman', category: 'Herramientas', symbol: 'P', icon: 'public/images/tech/postman.svg', description: 'Diseño y prueba de APIs.' },
     { name: 'Figma', category: 'Herramientas', symbol: 'F', icon: 'public/images/tech/figma.svg', description: 'Diseño colaborativo de interfaces.' },
+    { name: 'SonarQube', category: 'Herramientas', symbol: 'SQ', icon: 'public/images/tech/sonarqube.svg', description: 'Análisis estático de código y calidad del software.' },
     { name: 'Docker', category: 'Herramientas', symbol: 'D', icon: 'public/images/tech/docker.svg', description: 'Contenedores para despliegues.' },
     { name: 'Docker Compose', category: 'Herramientas', symbol: 'DC', icon: 'public/images/tech/docker.svg', description: 'Orquestación de contenedores.' },
     { name: 'GitHub Actions', category: 'Herramientas', symbol: 'GA', icon: 'public/images/tech/githubactions.svg', description: 'CI/CD automatizado.' },
     { name: 'Linux', category: 'Herramientas', symbol: 'LX', icon: 'public/images/tech/linux.svg', description: 'Sistema operativo y servidores.' },
+    { name: 'Java', category: 'Lenguajes', symbol: 'J', icon: 'public/images/tech/java.svg', description: 'Lenguaje de programación de propósito general.' },
   ],
   faqs: [
     [

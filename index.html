@@ -20,7 +20,7 @@
     <script defer src="src/config.js"></script>
     <script defer src="src/app.js"></script>
   </head>
-  <body>
+  <body class="landing-page">
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <header class="site-header" id="inicio">
       <div class="header-inner">
@@ -80,11 +80,23 @@
         <div class="hero-art" aria-label="Composición gráfica de interfaces digitales">
           <div class="orbit orbit-a"></div>
           <div class="orbit orbit-b"></div>
-          <div class="code-window window-back">
+          <div
+            class="code-window window-back"
+            role="button"
+            tabindex="0"
+            aria-pressed="false"
+            aria-label="Intercambiar ventana del navegador con pantalla móvil"
+          >
             <div class="window-bar"><i></i><i></i><i></i><span>proyecto.js</span></div>
             <div class="code-lines"><b></b><b></b><b></b><b></b><b></b></div>
           </div>
-          <div class="device-card">
+          <div
+            class="device-card"
+            role="button"
+            tabindex="0"
+            aria-pressed="false"
+            aria-label="Intercambiar pantalla móvil con ventana del navegador"
+          >
             <div class="device-top"><span></span><span></span><span></span><i>nexcode.app</i></div>
             <div class="device-content">
               <div class="mini-mark">N</div>
@@ -251,6 +263,16 @@
             aria-label="Filtrar tecnologías"
           ></div>
           <div class="technology-grid" id="technology-grid"></div>
+          <button
+            class="tech-more"
+            id="tech-more"
+            type="button"
+            aria-controls="technology-grid"
+            aria-expanded="false"
+            hidden
+          >
+            Ver todas las tecnologías
+          </button>
           <div class="tech-empty" id="tech-empty">
             <span class="tech-brackets">{ }</span>
             <div>
@@ -438,6 +460,9 @@
         </div>
       </section>
     </main>
+    <a class="mobile-contact-cta" href="#contacto" aria-label="Ir a la sección de contacto">
+      <span>¿Tienes una idea?</span><strong>Hablemos <span aria-hidden="true">→</span></strong>
+    </a>
     <footer class="site-footer">
       <div class="section-wrap footer-main">
         <div class="footer-brand">

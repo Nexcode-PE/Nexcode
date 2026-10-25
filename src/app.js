@@ -12,6 +12,23 @@
     a.href = href;
     return a;
   };
+  const heroArt = $('.hero-art');
+  const heroCards = heroArt?.querySelectorAll('.device-card, .window-back');
+  if (heroArt && heroCards?.length) {
+    const exchangeCards = () => {
+      const swapped = heroArt.classList.toggle('is-swapped');
+      heroCards.forEach((card) => card.setAttribute('aria-pressed', String(swapped)));
+    };
+    heroCards.forEach((card) => {
+      card.addEventListener('click', exchangeCards);
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          exchangeCards();
+        }
+      });
+    });
+  }
   const serviceGrid = $('#service-grid');
   cfg.services.forEach((s, i) => {
     const article = el('article', `service-card service-${s.id}`);
@@ -200,19 +217,30 @@
 
   const technologyGrid = $('#technology-grid'),
     techFilters = $('#tech-filters'),
-    techEmpty = $('#tech-empty');
+    techEmpty = $('#tech-empty'),
+    techMore = $('#tech-more');
   const techCats = [
     'all',
     ...new Set((cfg.technologies || []).map((technology) => technology.category).filter(Boolean)),
   ];
   let selectedTech = 'all';
+  let showAllTech = false;
+  const mobileTech = window.matchMedia('(max-width: 620px)');
   const renderTech = () => {
     technologyGrid.replaceChildren();
     const items = (cfg.technologies || []).filter(
       (t) => selectedTech === 'all' || t.category === selectedTech,
     );
     techEmpty.hidden = items.length > 0;
-    items.forEach((t) => {
+    const visibleItems = mobileTech.matches && !showAllTech ? items.slice(0, 6) : items;
+    if (techMore) {
+      techMore.hidden = !mobileTech.matches || items.length <= 6;
+      techMore.textContent = showAllTech
+        ? 'Mostrar menos tecnologías'
+        : `Ver todas las tecnologías (${items.length})`;
+      techMore.setAttribute('aria-expanded', String(showAllTech));
+    }
+    visibleItems.forEach((t) => {
       const card = el('article', 'technology-card');
       const symbol = el('span', 'technology-symbol');
       if (t.icon) {
@@ -242,6 +270,7 @@
     b.setAttribute('aria-pressed', String(!i));
     b.addEventListener('click', () => {
       selectedTech = i === 0 ? 'all' : name;
+      showAllTech = false;
       techFilters.querySelectorAll('button').forEach((q) => {
         q.classList.remove('active');
         q.setAttribute('aria-pressed', 'false');
@@ -251,6 +280,14 @@
       renderTech();
     });
     techFilters.append(b);
+  });
+  techMore?.addEventListener('click', () => {
+    showAllTech = !showAllTech;
+    renderTech();
+  });
+  mobileTech.addEventListener('change', () => {
+    showAllTech = false;
+    renderTech();
   });
   renderTech();
 
@@ -453,6 +490,14 @@
     progress.style.transform = `scaleX(${maxScroll > 0 ? window.scrollY / maxScroll : 0})`;
     header.classList.toggle('is-scrolled', window.scrollY > 12);
     scrollTop.classList.toggle('is-visible', window.scrollY > 700);
+    const mobileContactCta = $('.mobile-contact-cta');
+    if (mobileContactCta) {
+      const reachedContact =
+        window.scrollY + window.innerHeight * 0.72 >= $('#contacto').offsetTop;
+      mobileContactCta.classList.toggle('is-hidden', reachedContact);
+      mobileContactCta.setAttribute('aria-hidden', String(reachedContact));
+      mobileContactCta.tabIndex = reachedContact ? -1 : 0;
+    }
   };
   window.addEventListener('scroll', syncScrollState, { passive: true });
   syncScrollState();

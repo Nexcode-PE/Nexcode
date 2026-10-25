@@ -81,6 +81,8 @@ window.NEXCODE = {
       category: 'web',
       categoryLabel: 'E-commerce',
       status: 'MVP navegable',
+      image: 'public/images/projects/ushas-hero.webp',
+      imageAlt: 'Campaña de maquillaje de Ushas Perú',
       summary:
         'MVP de comercio electrónico para Ushas Perú, diseñado como una tienda digital preparada para evolucionar hacia una plataforma completa.',
       objective:

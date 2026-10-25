@@ -203,13 +203,7 @@
     techEmpty = $('#tech-empty');
   const techCats = [
     'all',
-    'Frontend',
-    'Backend',
-    'Móvil',
-    'Datos',
-    'Diseño',
-    'Infraestructura',
-    'Calidad',
+    ...new Set((cfg.technologies || []).map((technology) => technology.category).filter(Boolean)),
   ];
   let selectedTech = 'all';
   const renderTech = () => {

@@ -103,7 +103,39 @@ window.NEXCODE = {
       website: '',
     },
   ],
-  technologies: [],
+  technologies: [
+    // Frontend
+    { name: 'React', category: 'Frontend', symbol: '⚛', description: 'Biblioteca para interfaces de usuario.' },
+    { name: 'Next.js', category: 'Frontend', symbol: '▲', description: 'Framework React para aplicaciones web.' },
+    { name: 'Angular', category: 'Frontend', symbol: 'A', description: 'Framework para aplicaciones web.' },
+    { name: 'Vue.js', category: 'Frontend', symbol: 'V', description: 'Framework progresivo para interfaces.' },
+    { name: 'TypeScript', category: 'Frontend', symbol: 'TS', description: 'JavaScript con tipado estático.' },
+    { name: 'JavaScript', category: 'Frontend', symbol: 'JS', description: 'Lenguaje para experiencias web dinámicas.' },
+    { name: 'Vite', category: 'Frontend', symbol: '⚡', description: 'Herramienta de desarrollo web rápida.' },
+    { name: 'Tailwind CSS', category: 'Frontend', symbol: 'TW', description: 'Utilidades CSS para interfaces.' },
+    { name: 'HTML5', category: 'Frontend', symbol: '5', description: 'Estructura semántica para la web.' },
+    { name: 'CSS3', category: 'Frontend', symbol: 'CSS', description: 'Estilos y diseño adaptable.' },
+
+    // Backend & Cloud
+    { name: 'Node.js', category: 'Backend & Cloud', symbol: 'N', description: 'Entorno de ejecución para JavaScript.' },
+    { name: 'Supabase', category: 'Backend & Cloud', symbol: 'S', description: 'Plataforma backend basada en Postgres.' },
+    { name: 'Edge Functions', category: 'Backend & Cloud', symbol: 'ƒ', description: 'Funciones serverless de baja latencia.' },
+    { name: 'REST APIs', category: 'Backend & Cloud', symbol: '↔', description: 'Interfaces para conectar servicios.' },
+    { name: 'Webhooks', category: 'Backend & Cloud', symbol: '⌁', description: 'Eventos para integraciones entre servicios.' },
+
+    // Bases de datos
+    { name: 'PostgreSQL', category: 'Bases de datos', symbol: 'PG', description: 'Base de datos relacional.' },
+    { name: 'SQL', category: 'Bases de datos', symbol: 'SQL', description: 'Lenguaje de consulta de datos.' },
+    { name: 'Supabase Database', category: 'Bases de datos', symbol: 'S', description: 'Base de datos Postgres gestionada.' },
+    { name: 'Row Level Security (RLS)', category: 'Bases de datos', symbol: 'RLS', description: 'Control de acceso a nivel de fila.' },
+
+    // Herramientas
+    { name: 'Git', category: 'Herramientas', symbol: 'G', description: 'Control de versiones distribuido.' },
+    { name: 'GitHub', category: 'Herramientas', symbol: 'GH', description: 'Colaboración y alojamiento de código.' },
+    { name: 'npm', category: 'Herramientas', symbol: 'npm', description: 'Gestor de paquetes de JavaScript.' },
+    { name: 'Postman', category: 'Herramientas', symbol: 'P', description: 'Diseño y prueba de APIs.' },
+    { name: 'Figma', category: 'Herramientas', symbol: 'F', description: 'Diseño colaborativo de interfaces.' },
+  ],
   faqs: [
     [
       '¿Qué tipo de páginas web desarrollan?',

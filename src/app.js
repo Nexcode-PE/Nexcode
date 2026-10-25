@@ -392,4 +392,68 @@
       input.parentElement.querySelector('.field-error')?.replaceChildren();
     }),
   );
+
+  // Small navigation improvements shared by the whole landing page.
+  const header = $('.site-header');
+  const progress = el('div', 'site-progress');
+  progress.setAttribute('aria-hidden', 'true');
+  header.append(progress);
+
+  const ambient = el('div', 'page-ambient');
+  ambient.setAttribute('aria-hidden', 'true');
+  document.body.prepend(ambient);
+
+  const scrollTop = el('button', 'scroll-top', '↑');
+  scrollTop.type = 'button';
+  scrollTop.setAttribute('aria-label', 'Volver al inicio');
+  document.body.append(scrollTop);
+  scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  const navLinks = [...nav.querySelectorAll('a[href^="#"]')];
+  const sections = navLinks
+    .map((item) => document.querySelector(item.getAttribute('href')))
+    .filter(Boolean);
+  const setActiveLink = (section) => {
+    navLinks.forEach((item) => {
+      const active = item.getAttribute('href') === `#${section.id}`;
+      item.classList.toggle('is-active', active);
+      if (active) item.setAttribute('aria-current', 'page');
+      else item.removeAttribute('aria-current');
+    });
+  };
+
+  if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActiveLink(visible.target);
+      },
+      { rootMargin: '-28% 0px -62%', threshold: [0.05, 0.25, 0.5] },
+    );
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    const revealItems = [...document.querySelectorAll('.section-block, .intro-strip')];
+    revealItems.forEach((item) => item.classList.add('reveal-item'));
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) =>
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }),
+      { threshold: 0.08 },
+    );
+    revealItems.forEach((item) => revealObserver.observe(item));
+  } else sections.slice(0, 1).forEach(setActiveLink);
+
+  const syncScrollState = () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = `scaleX(${maxScroll > 0 ? window.scrollY / maxScroll : 0})`;
+    header.classList.toggle('is-scrolled', window.scrollY > 12);
+    scrollTop.classList.toggle('is-visible', window.scrollY > 700);
+  };
+  window.addEventListener('scroll', syncScrollState, { passive: true });
+  syncScrollState();
 })();

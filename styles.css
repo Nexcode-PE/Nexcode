@@ -1692,7 +1692,7 @@ textarea {
   align-items: center;
   padding: 34px 20px 12px;
   position: relative;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 210, 208, 0.12) 0%, transparent 70%);
+  background: #ffffff;
 }
 .team-photo {
   width: 144px;

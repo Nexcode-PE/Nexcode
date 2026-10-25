@@ -102,6 +102,40 @@ window.NEXCODE = {
       linkedin: '',
       website: '',
     },
+    {
+      name: 'José Luis Carbajal Magallanes',
+      role: 'Desarrollador Full Stack | Backend | Bases de datos',
+      specialty: 'APIs REST · Bases de datos · Despliegues',
+      bio: [
+        'Bachiller en Ingeniería de Sistemas con experiencia en aplicaciones empresariales, APIs REST, bases de datos y despliegues.',
+        'Me enfoco en comprender los procesos del negocio, construir funcionalidades mantenibles y resolver incidencias de integración y producción de forma verificable.',
+      ],
+      photo: 'https://avatars.githubusercontent.com/u/249818648?v=4',
+      areas: [
+        'Aplicaciones Empresariales',
+        'APIs REST',
+        'Bases de Datos',
+        'Integración Frontend/Backend',
+        'Diagnóstico de Incidencias',
+      ],
+      technologies: [
+        'React',
+        'Vue',
+        'TypeScript',
+        'C#',
+        'ASP.NET Core',
+        'Python',
+        'FastAPI',
+        'PostgreSQL',
+        'MySQL',
+        'Docker',
+        'Git',
+        'GitHub Actions',
+      ],
+      github: 'https://github.com/reinh5678-cloud',
+      linkedin: '',
+      website: '',
+    },
   ],
   technologies: [
     // Frontend
@@ -122,12 +156,23 @@ window.NEXCODE = {
     { name: 'Edge Functions', category: 'Backend & Cloud', symbol: 'ƒ', description: 'Funciones serverless de baja latencia.' },
     { name: 'REST APIs', category: 'Backend & Cloud', symbol: '↔', description: 'Interfaces para conectar servicios.' },
     { name: 'Webhooks', category: 'Backend & Cloud', symbol: '⌁', description: 'Eventos para integraciones entre servicios.' },
+    { name: 'C#', category: 'Backend & Cloud', symbol: 'C#', description: 'Lenguaje para aplicaciones .NET.' },
+    { name: 'ASP.NET Core', category: 'Backend & Cloud', symbol: '.NET', description: 'Framework web para APIs y servicios.' },
+    { name: 'Python', category: 'Backend & Cloud', symbol: 'Py', description: 'Lenguaje versátil para backend y datos.' },
+    { name: 'FastAPI', category: 'Backend & Cloud', symbol: 'API', description: 'Framework moderno para construir APIs.' },
+
+    // Móvil
+    { name: 'Flutter', category: 'Móvil', symbol: 'F', description: 'Framework para apps multiplataforma.' },
 
     // Bases de datos
     { name: 'PostgreSQL', category: 'Bases de datos', symbol: 'PG', description: 'Base de datos relacional.' },
     { name: 'SQL', category: 'Bases de datos', symbol: 'SQL', description: 'Lenguaje de consulta de datos.' },
     { name: 'Supabase Database', category: 'Bases de datos', symbol: 'S', description: 'Base de datos Postgres gestionada.' },
     { name: 'Row Level Security (RLS)', category: 'Bases de datos', symbol: 'RLS', description: 'Control de acceso a nivel de fila.' },
+    { name: 'MySQL', category: 'Bases de datos', symbol: 'MY', description: 'Sistema de gestión de bases de datos.' },
+    { name: 'SQLite', category: 'Bases de datos', symbol: 'SQ', description: 'Base de datos ligera y embebida.' },
+    { name: 'Entity Framework Core', category: 'Bases de datos', symbol: 'EF', description: 'ORM para .NET.' },
+    { name: 'Alembic', category: 'Bases de datos', symbol: 'AL', description: 'Migraciones para SQLAlchemy.' },
 
     // Herramientas
     { name: 'Git', category: 'Herramientas', symbol: 'G', description: 'Control de versiones distribuido.' },
@@ -135,6 +180,10 @@ window.NEXCODE = {
     { name: 'npm', category: 'Herramientas', symbol: 'npm', description: 'Gestor de paquetes de JavaScript.' },
     { name: 'Postman', category: 'Herramientas', symbol: 'P', description: 'Diseño y prueba de APIs.' },
     { name: 'Figma', category: 'Herramientas', symbol: 'F', description: 'Diseño colaborativo de interfaces.' },
+    { name: 'Docker', category: 'Herramientas', symbol: 'D', description: 'Contenedores para despliegues.' },
+    { name: 'Docker Compose', category: 'Herramientas', symbol: 'DC', description: 'Orquestación de contenedores.' },
+    { name: 'GitHub Actions', category: 'Herramientas', symbol: 'GA', description: 'CI/CD automatizado.' },
+    { name: 'Linux', category: 'Herramientas', symbol: 'LX', description: 'Sistema operativo y servidores.' },
   ],
   faqs: [
     [

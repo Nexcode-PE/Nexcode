@@ -214,8 +214,19 @@
     techEmpty.hidden = items.length > 0;
     items.forEach((t) => {
       const card = el('article', 'technology-card');
+      const symbol = el('span', 'technology-symbol');
+      if (t.icon) {
+        const icon = el('img', 'technology-icon');
+        icon.src = t.icon;
+        icon.alt = `${t.name} logo`;
+        icon.loading = 'lazy';
+        symbol.classList.add('has-icon');
+        symbol.append(icon);
+      } else {
+        symbol.textContent = t.symbol || '{ }';
+      }
       card.append(
-        el('span', 'technology-symbol', t.symbol || '{ }'),
+        symbol,
         el('div', '', t.category || ''),
         el('h3', '', t.name),
         el('p', '', t.description || ''),

@@ -1,0 +1,57 @@
+(() => {
+  const cfg = window.NEXCODE;
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const el = (tag, className, text) => { const node=document.createElement(tag); if(className) node.className=className; if(text!==undefined) node.textContent=text; return node; };
+  const link = (label, href, className='text-link') => { const a=el('a',className,label); a.href=href; return a; };
+  const serviceGrid = $('#service-grid');
+  cfg.services.forEach((s,i) => {
+    const article=el('article',`service-card service-${s.id}`);
+    const picture=el('div','service-image'); const img=el('img');img.src=s.image;img.alt=s.imageAlt||`${s.name} — Nexcode`;img.loading='lazy';picture.append(img);
+    const content=el('div','service-content'),meta=el('div','service-meta');meta.append(el('span','',`0${i+1}`),el('span','',s.category));
+    const title=el('h3','',s.name),desc=el('p','',s.description),details=document.createElement('details'),summary=document.createElement('summary');summary.append(document.createTextNode('Qué puede incluir '),el('span','','+'));details.append(summary);
+    const detailContent=el('div','service-details');const challenge=el('p');challenge.append(el('strong','','El reto'),document.createElement('br'),document.createTextNode(s.problem));detailContent.append(challenge,el('p','', 'Beneficios'));const benefits=document.createElement('ul');(s.benefits||[]).forEach(x=>benefits.append(el('li','',x)));detailContent.append(benefits,el('p','','Entregables posibles'));const deliverables=document.createElement('ul');(s.deliverables||[]).forEach(x=>deliverables.append(el('li','',x)));detailContent.append(deliverables);details.append(detailContent);content.append(meta,title,desc,details,link('Consultar este servicio →','#contacto'));article.append(picture,content);serviceGrid.append(article);
+  });
+
+  const projectFilters=$('#project-filters');
+  const categories=[['all','Todos'],['web','Páginas web'],['mobile','Aplicaciones móviles'],['systems','Sistemas web'],['backend','Backend y APIs'],['prototype','Prototipos'],['other','Otros']];
+  let selectedCategory='all';
+  const emptyProjects=$('#empty-projects'),projectList=$('#project-list');
+  const renderProjects=()=>{
+    projectList.replaceChildren();
+    const projects=cfg.projects||[];const visible=projects.filter(p=>selectedCategory==='all'||p.category===selectedCategory);
+    emptyProjects.hidden=projects.length>0 && visible.length>0;
+    if(projects.length>0 && visible.length===0){emptyProjects.hidden=false;$('.eyebrow',emptyProjects).textContent='Sin coincidencias';$('h3',emptyProjects).textContent='No hay proyectos en esta categoría.';$('p:not(.eyebrow)',emptyProjects).textContent='Prueba con otra categoría para ver más trabajos.';$('.text-link',emptyProjects).hidden=true;return;}
+    if(projects.length===0){$('.eyebrow',emptyProjects).textContent='Portafolio en preparación';$('h3',emptyProjects).textContent='Estamos preparando lo que viene.';$('p:not(.eyebrow)',emptyProjects).textContent='Pronto encontrarás aquí proyectos, procesos y soluciones construidas por Nexcode. Mientras tanto, cuéntanos qué quieres crear.';$('.text-link',emptyProjects).hidden=false;return;}
+    visible.forEach(p=>{
+      const card=el('article','project-card');if(p.image){const cover=el('div','project-cover'),img=el('img');img.src=p.image;img.alt=p.imageAlt||`Captura de ${p.name}`;img.loading='lazy';cover.append(img);card.append(cover)}
+      const body=el('div','project-card-body'),meta=el('div','service-meta');meta.append(el('span','',p.status||p.type||'Proyecto'),el('span','',p.categoryLabel||categoryLabel(p.category)));body.append(meta,el('h3','',p.name),el('p','',p.summary||p.description||''));if(p.technologies?.length){const tags=el('div','project-tags');p.technologies.forEach(t=>tags.append(el('span','',t)));body.append(tags)}body.append(link('Ver proyecto →',`project.html?id=${encodeURIComponent(p.id)}`));card.append(body);projectList.append(card);
+    });
+  };
+  const categoryLabel=id=>categories.find(x=>x[0]===id)?.[1]||'Proyecto';
+  categories.forEach(([id,label],i)=>{const b=el('button','filter-chip'+(!i?' active':''),label);b.type='button';b.setAttribute('aria-pressed',String(!i));b.addEventListener('click',()=>{selectedCategory=id;projectFilters.querySelectorAll('button').forEach(q=>{q.classList.remove('active');q.setAttribute('aria-pressed','false')});b.classList.add('active');b.setAttribute('aria-pressed','true');renderProjects()});projectFilters.append(b)});
+  renderProjects();
+
+  const teamGrid=$('#team-grid'),teamPlaceholder=$('#team-placeholder');
+  (cfg.team||[]).forEach(person=>{const card=el('article','team-card');if(person.photo){const img=el('img','team-photo');img.src=person.photo;img.alt=person.name?`Fotografía de ${person.name}`:'Fotografía del equipo Nexcode';img.loading='lazy';card.append(img)}const body=el('div','team-card-body');body.append(el('p','eyebrow',person.role||person.specialty||'Equipo Nexcode'),el('h3','',person.name),el('p','',person.bio||''));if(person.technologies?.length){const tags=el('div','project-tags');person.technologies.forEach(t=>tags.append(el('span','',t)));body.append(tags)}const socials=el('div','team-links');for(const [label,url] of [['GitHub',person.github],['LinkedIn',person.linkedin],['Perfil',person.website]])if(url)socials.append(link(label,url,'small-link'));if(socials.childElementCount)body.append(socials);card.append(body);teamGrid.append(card)});
+  teamPlaceholder.hidden=(cfg.team||[]).length>0;
+
+  const technologyGrid=$('#technology-grid'),techFilters=$('#tech-filters'),techEmpty=$('#tech-empty');
+  const techCats=['all','Frontend','Backend','Móvil','Datos','Diseño','Infraestructura','Calidad'];let selectedTech='all';
+  const renderTech=()=>{technologyGrid.replaceChildren();const items=(cfg.technologies||[]).filter(t=>selectedTech==='all'||t.category===selectedTech);techEmpty.hidden=items.length>0;items.forEach(t=>{const card=el('article','technology-card');card.append(el('span','technology-symbol',t.symbol||'{ }'),el('div','',t.category||''),el('h3','',t.name),el('p','',t.description||''));if(t.projects?.length)card.append(el('small','',`Proyectos: ${t.projects.join(', ')}`));technologyGrid.append(card)})};
+  techCats.forEach((name,i)=>{const label=i===0?'Todas':name;const b=el('button','tech-filter'+(!i?' active':''),label);b.type='button';b.setAttribute('aria-pressed',String(!i));b.addEventListener('click',()=>{selectedTech=i===0?'all':name;techFilters.querySelectorAll('button').forEach(q=>{q.classList.remove('active');q.setAttribute('aria-pressed','false')});b.classList.add('active');b.setAttribute('aria-pressed','true');renderTech()});techFilters.append(b)});renderTech();
+
+  const faq=$('#faq-list');cfg.faqs.forEach(([q,a])=>{const d=document.createElement('details');d.className='faq-item';const summary=document.createElement('summary');summary.append(document.createTextNode(q),el('span','','+'));d.append(summary,el('p','',a));faq.append(d)});
+  const contactLinks=$('#contact-links'),contact=cfg.contact||{};let hasContact=false;
+  if(contact.email){contactLinks.append(link('Correo',`mailto:${contact.email}`,'small-link'));hasContact=true}
+  if(contact.whatsapp){const number=contact.whatsapp.replace(/\D/g,'');if(number){const href=`https://wa.me/${number}?text=${encodeURIComponent('Hola Nexcode, quiero conversar sobre un proyecto.')}`;const a=link('WhatsApp',href,'small-link');a.target='_blank';a.rel='noopener noreferrer';contactLinks.append(a);hasContact=true}}
+  for(const [label,key] of [['LinkedIn','linkedin'],['GitHub','github']])if(contact[key]){const a=link(label,contact[key],'small-link');a.target='_blank';a.rel='noopener noreferrer';contactLinks.append(a);hasContact=true}
+  if(hasContact)$('#contact-status').textContent='Elige el canal que te resulte más cómodo.';
+  $('#year').textContent=new Date().getFullYear();
+  const themeButton=$('.theme-toggle'),saved=localStorage.getItem('nexcode-theme');if(saved==='light')document.documentElement.dataset.theme='light';
+  const setThemeLabel=()=>themeButton.setAttribute('aria-label',document.documentElement.dataset.theme==='light'?'Cambiar a tema oscuro':'Cambiar a tema claro');
+  const syncBrandLogo=()=>document.querySelectorAll('[data-logo-dark]').forEach(img=>{img.src=document.documentElement.dataset.theme==='light'?img.dataset.logoLight:img.dataset.logoDark});setThemeLabel();syncBrandLogo();
+  themeButton.addEventListener('click',()=>{const light=document.documentElement.dataset.theme!=='light';document.documentElement.dataset.theme=light?'light':'dark';localStorage.setItem('nexcode-theme',light?'light':'dark');setThemeLabel();syncBrandLogo()});
+  const toggle=$('.menu-toggle'),nav=$('#primary-nav');toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');nav.classList.toggle('open',open)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Abrir menú');nav.classList.remove('open')}));
+  const form=$('#contact-form'),status=$('.form-status');form.addEventListener('submit',async e=>{e.preventDefault();form.querySelectorAll('.field-error').forEach(x=>x.textContent='');let invalid=false;for(const input of form.querySelectorAll('input[required],select[required],textarea[required]')){if(!input.checkValidity()){invalid=true;const msg=input.type==='checkbox'?'Debes aceptar para enviar la consulta.':input.validity.typeMismatch?'Ingresa un correo válido.':'Completa este campo.';input.parentElement.querySelector('.field-error')?.replaceChildren(document.createTextNode(msg));input.setAttribute('aria-invalid','true')}else input.removeAttribute('aria-invalid')}if(invalid){status.textContent='Revisa los campos marcados e inténtalo de nuevo.';return}if(!contact.endpoint){status.textContent='La consulta no se envió: Nexcode aún debe configurar un servicio de recepción seguro. Tus datos no se han transmitido.';return}const button=form.querySelector('button[type=submit]');button.disabled=true;status.textContent='Enviando…';try{const response=await fetch(contact.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(form)))});if(!response.ok)throw new Error('Request failed');form.reset();status.textContent='Consulta recibida. Gracias por escribirnos.'}catch{status.textContent='No se pudo enviar la consulta. Inténtalo más tarde o usa otro canal de contacto.'}finally{button.disabled=false}});
+  form.querySelectorAll('input,select,textarea').forEach(input=>input.addEventListener('input',()=>{input.removeAttribute('aria-invalid');input.parentElement.querySelector('.field-error')?.replaceChildren()}));
+})();

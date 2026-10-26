@@ -17,13 +17,10 @@ window.NEXCODE = {
     email: 'nexcodepe@gmail.com',
     whatsapp: '',
     linkedin: '',
-    github: 'https://github.com/Nexcode-PE',
+    github: '',
     endpoint: '/api/contact',
   },
-  socials: [
-    { name: 'GitHub', url: 'https://github.com/Nexcode-PE', icon: 'github' },
-    { name: 'Correo', url: 'mailto:nexcodepe@gmail.com', icon: 'mail' },
-  ],
+  socials: [{ name: 'Correo', url: 'mailto:nexcodepe@gmail.com', icon: 'mail' }],
   services: [
     {
       id: 'web',

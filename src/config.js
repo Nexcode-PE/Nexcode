@@ -29,8 +29,8 @@ window.NEXCODE = {
         'Una base preparada para crecer',
       ],
       deliverables: ['Landing pages', 'Sitios informativos y corporativos', 'Catálogos digitales'],
-      image: 'public/images/brand/nexcode-logo-web.png',
-      imageAlt: 'Logo Nexcode para páginas web',
+      image: 'public/images/services/web-development.jpg',
+      imageAlt: 'Equipo trabajando en una experiencia web',
     },
     {
       id: 'mobile',
@@ -50,8 +50,8 @@ window.NEXCODE = {
         'Aplicaciones móviles según viabilidad',
         'Integración con servicios',
       ],
-      image: 'public/images/brand/nexcode-logo-mobile.png',
-      imageAlt: 'Logo Nexcode para aplicaciones móviles',
+      image: 'public/images/services/mobile-apps.jpg',
+      imageAlt: 'Persona utilizando una aplicación en un teléfono móvil',
     },
     {
       id: 'solutions',
@@ -70,8 +70,8 @@ window.NEXCODE = {
         'Paneles de información',
         'Automatización e integraciones según alcance',
       ],
-      image: 'public/images/brand/nexcode-logo-solutions.png',
-      imageAlt: 'Logo Nexcode para soluciones digitales',
+      image: 'public/images/services/digital-solutions.jpg',
+      imageAlt: 'Infraestructura tecnológica para soluciones digitales',
     },
   ],
   projects: [

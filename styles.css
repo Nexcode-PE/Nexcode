@@ -94,7 +94,7 @@ button {
 }
 .header-inner {
   height: 78px;
-  width: min(1380px, calc(100% - 48px));
+  width: calc(100% - 48px);
   margin: auto;
   display: flex;
   align-items: center;

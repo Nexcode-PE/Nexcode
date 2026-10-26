@@ -90,27 +90,27 @@ window.NEXCODE = {
       name: 'Ushas Perú',
       category: 'web',
       categoryLabel: 'E-commerce',
-      status: 'MVP navegable',
+      status: 'En producción',
       image: 'public/images/projects/ushas-hero.webp',
       imageAlt: 'Campaña de maquillaje de Ushas Perú',
       summary:
-        'MVP de comercio electrónico para Ushas Perú, diseñado como una tienda digital preparada para evolucionar hacia una plataforma completa.',
+        'Plataforma de comercio electrónico de Ushas Perú, disponible en producción con una experiencia de compra clara y adaptable.',
       objective:
-        'Crear una experiencia de tienda pública navegable y una base técnica que permita incorporar gestión administrativa, APIs y flujos de compra en nuevas etapas.',
+        'Ofrecer una experiencia de tienda pública confiable y una base técnica preparada para acompañar el crecimiento comercial de la marca.',
       problem:
         'El proyecto necesitaba una presencia de e-commerce clara, adaptable y lista para crecer sin comprometer la estructura inicial.',
       solution:
-        'Se desarrolló un storefront público con datos de demostración y una organización modular que separa la interfaz, los contratos de dominio y los adaptadores de datos.',
+        'Se implementó un storefront público en producción con una organización modular que separa la interfaz, los contratos de dominio y los adaptadores de datos.',
       features: [
-        'Storefront público navegable',
-        'Datos de demostración reemplazables por una API',
-        'Base preparada para panel administrativo y servicios backend',
+        'Tienda pública disponible en producción',
+        'Catálogo y experiencia de compra adaptables',
+        'Arquitectura preparada para servicios e integraciones',
       ],
       architecture:
-        'Monorepo con aplicación storefront en Vue 3, paquetes compartidos para tipos y datos de demostración. Las aplicaciones de administración y API permanecen reservadas para la siguiente evolución del producto.',
+        'Monorepo con una aplicación storefront en Vue 3 y paquetes compartidos para tipos, dominio y adaptadores de datos. La arquitectura permite incorporar nuevos módulos y servicios conforme evolucione el producto.',
       decisions: [
-        'Separar contratos y datos de demostración para facilitar la integración futura',
-        'Mantener el storefront independiente de la implementación final del backend',
+        'Separar contratos y adaptadores de datos para facilitar nuevas integraciones',
+        'Mantener el storefront desacoplado de los servicios de backend',
         'Organizar el proyecto como monorepo para permitir crecimiento por módulos',
       ],
       technologies: [
@@ -131,7 +131,7 @@ window.NEXCODE = {
         'Piero Alexandro Laos Saravia',
       ],
       links: {
-        demo: 'https://ushas-peru.vercel.app/',
+        website: 'https://ushas-peru.vercel.app/',
       },
     },
   ],

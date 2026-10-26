@@ -11,6 +11,9 @@
       button.setAttribute('title', isLight ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro');
       button.querySelector('[aria-hidden="true"]').textContent = isLight ? '☾' : '◐';
     });
+    document.querySelectorAll('[data-logo-dark]').forEach((image) => {
+      image.src = isLight ? image.dataset.logoLight : image.dataset.logoDark;
+    });
   };
 
   document.querySelectorAll('.theme-toggle').forEach((button) => {

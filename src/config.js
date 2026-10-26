@@ -29,8 +29,8 @@ window.NEXCODE = {
         'Una base preparada para crecer',
       ],
       deliverables: ['Landing pages', 'Sitios informativos y corporativos', 'Catálogos digitales'],
-      image: 'public/images/services/web-development.jpg',
-      imageAlt: 'Equipo trabajando en una experiencia web',
+      image: 'public/images/services/web-development-original.png',
+      imageAlt: 'Composición visual de una experiencia web personalizada',
     },
     {
       id: 'mobile',
@@ -50,8 +50,8 @@ window.NEXCODE = {
         'Aplicaciones móviles según viabilidad',
         'Integración con servicios',
       ],
-      image: 'public/images/services/mobile-apps.jpg',
-      imageAlt: 'Persona utilizando una aplicación en un teléfono móvil',
+      image: 'public/images/services/mobile-apps-original.png',
+      imageAlt: 'Composición visual de una aplicación móvil personalizada',
     },
     {
       id: 'solutions',
@@ -70,8 +70,8 @@ window.NEXCODE = {
         'Paneles de información',
         'Automatización e integraciones según alcance',
       ],
-      image: 'public/images/services/digital-solutions.jpg',
-      imageAlt: 'Infraestructura tecnológica para soluciones digitales',
+      image: 'public/images/services/digital-solutions-original.png',
+      imageAlt: 'Composición visual de un sistema digital conectado',
     },
   ],
   projects: [

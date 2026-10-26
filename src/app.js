@@ -231,7 +231,7 @@
     const items = (cfg.technologies || []).filter(
       (t) => selectedTech === 'all' || t.category === selectedTech,
     );
-    techEmpty.hidden = items.length > 0;
+    if (techEmpty) techEmpty.hidden = items.length > 0;
     const visibleItems = mobileTech.matches && !showAllTech ? items.slice(0, 6) : items;
     if (techMore) {
       techMore.hidden = !mobileTech.matches || items.length <= 6;

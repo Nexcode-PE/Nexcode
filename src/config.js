@@ -107,7 +107,6 @@ window.NEXCODE = {
       participants: ['Italo Bruno Ramos Sotomayor'],
       links: {
         demo: 'https://ushas-peru.vercel.app/',
-        repository: 'https://github.com/BrunoRasot/Ushas',
       },
     },
   ],

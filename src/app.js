@@ -285,10 +285,11 @@
     showAllTech = !showAllTech;
     renderTech();
   });
-  mobileTech.addEventListener('change', () => {
+  const resetTechExpansion = () => {
     showAllTech = false;
     renderTech();
-  });
+  };
+  mobileTech.addEventListener('change', resetTechExpansion);
   renderTech();
 
   const faq = $('#faq-list');
@@ -330,6 +331,30 @@
       hasContact = true;
     }
   if (hasContact) $('#contact-status').textContent = 'Elige el canal que te resulte más cómodo.';
+  const socialLinks = $('#social-links');
+  const socialIconPaths = {
+    github:
+      'M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12',
+    mail: 'M2 4h20v16H2V4zm10 8L4 6v12h16V6l-8 6zm0-2 7-4H5l7 4z',
+  };
+  (cfg.socials || []).forEach(({ name, url, icon }) => {
+    if (!name || !url || !socialIconPaths[icon]) return;
+    const anchor = link('', url, 'footer-social-link');
+    anchor.setAttribute('aria-label', `${name} de Nexcode`);
+    anchor.title = name;
+    if (/^https:\/\//i.test(url)) {
+      anchor.target = '_blank';
+      anchor.rel = 'noopener noreferrer';
+    }
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('aria-hidden', 'true');
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', socialIconPaths[icon]);
+    svg.append(path);
+    anchor.append(svg, el('span', '', name));
+    socialLinks.append(anchor);
+  });
   $('#year').textContent = new Date().getFullYear();
   const themeButton = $('.theme-toggle'),
     saved = localStorage.getItem('nexcode-theme');
@@ -401,7 +426,7 @@
     }
     if (!contact.endpoint) {
       status.textContent =
-        'La consulta no se envió: Nexcode aún debe configurar un servicio de recepción seguro. Tus datos no se han transmitido.';
+        'La consulta no se envió porque el servicio de recepción no está configurado. Tus datos no se han transmitido.';
       return;
     }
     const button = form.querySelector('button[type=submit]');
@@ -413,12 +438,14 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(Object.fromEntries(new FormData(form))),
       });
-      if (!response.ok) throw new Error('Request failed');
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(result.error || 'No se pudo enviar la consulta. Inténtalo más tarde.');
+      }
       form.reset();
       status.textContent = 'Consulta recibida. Gracias por escribirnos.';
-    } catch {
-      status.textContent =
-        'No se pudo enviar la consulta. Inténtalo más tarde o usa otro canal de contacto.';
+    } catch (error) {
+      status.textContent = error.message || 'No se pudo enviar la consulta. Inténtalo más tarde.';
     } finally {
       button.disabled = false;
     }

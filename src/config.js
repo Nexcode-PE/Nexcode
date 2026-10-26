@@ -13,7 +13,17 @@ window.NEXCODE = {
       monochrome: 'public/images/brand/nexcode-logo-monochrome.png',
     },
   },
-  contact: { email: '', whatsapp: '', linkedin: '', github: '', endpoint: '' },
+  contact: {
+    email: 'nexcodepe@gmail.com',
+    whatsapp: '',
+    linkedin: '',
+    github: 'https://github.com/Nexcode-PE',
+    endpoint: '/api/contact',
+  },
+  socials: [
+    { name: 'GitHub', url: 'https://github.com/Nexcode-PE', icon: 'github' },
+    { name: 'Correo', url: 'mailto:nexcodepe@gmail.com', icon: 'mail' },
+  ],
   services: [
     {
       id: 'web',
@@ -289,7 +299,7 @@ window.NEXCODE = {
     ],
     [
       '¿Cómo solicito una cotización?',
-      'Cuéntanos qué necesitas mediante los canales oficiales de contacto, que estarán disponibles cuando el equipo los confirme.',
+      'Escríbenos a nexcodepe@gmail.com o visita el GitHub oficial de Nexcode. Las redes adicionales se publicarán cuando estén confirmadas.',
     ],
     [
       '¿Cómo se determina el precio?',
@@ -313,7 +323,7 @@ window.NEXCODE = {
     ],
     [
       '¿Ofrecen mantenimiento?',
-      'La disponibilidad comercial del mantenimiento está pendiente de confirmación. Consúltanos cuando se habiliten los canales de contacto.',
+      'La disponibilidad del servicio depende del proyecto. Escríbenos para conversar sobre tus necesidades de soporte y mantenimiento.',
     ],
     [
       '¿Qué información necesitan para comenzar?',

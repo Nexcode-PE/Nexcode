@@ -140,6 +140,11 @@ button {
   color: var(--cyan);
   padding: 7px;
 }
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .button {
   display: inline-flex;
   align-items: center;

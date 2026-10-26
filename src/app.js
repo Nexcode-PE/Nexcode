@@ -213,7 +213,7 @@
     card.append(body);
     teamGrid.append(card);
   });
-  teamPlaceholder.hidden = (cfg.team || []).length > 0;
+  if (teamPlaceholder) teamPlaceholder.hidden = (cfg.team || []).length > 0;
 
   const technologyGrid = $('#technology-grid'),
     techFilters = $('#tech-filters'),

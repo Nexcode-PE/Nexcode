@@ -20,7 +20,11 @@ window.NEXCODE = {
     github: '',
     endpoint: '/api/contact',
   },
-  socials: [{ name: 'Correo', url: 'mailto:nexcodepe@gmail.com', icon: 'mail' }],
+  socials: [
+    { name: 'Correo', url: 'mailto:nexcodepe@gmail.com', icon: 'mail' },
+    { name: 'Instagram', url: 'https://www.instagram.com/nexcodepe/', icon: 'instagram' },
+    { name: 'TikTok', url: 'https://www.tiktok.com/@nexcode3', icon: 'tiktok' },
+  ],
   services: [
     {
       id: 'web',
@@ -155,7 +159,6 @@ window.NEXCODE = {
         'Responsive Design',
         'Mobile First',
       ],
-      github: 'https://github.com/BrunoRasot',
       linkedin: '',
       website: '',
     },
@@ -185,7 +188,6 @@ window.NEXCODE = {
         'Responsive Design',
         'Calidad del Software',
       ],
-      github: 'https://github.com/pieroLaos18',
       linkedin: '',
       website: '',
     },
@@ -195,7 +197,6 @@ window.NEXCODE = {
       specialty: 'Perfil profesional por completar',
       bio: [],
       areas: [],
-      github: '',
       linkedin: '',
       website: '',
     },
@@ -205,7 +206,6 @@ window.NEXCODE = {
       specialty: 'Perfil profesional por completar',
       bio: [],
       areas: [],
-      github: '',
       linkedin: '',
       website: '',
     },
@@ -225,7 +225,6 @@ window.NEXCODE = {
         'Integración Frontend/Backend',
         'Diagnóstico de Incidencias',
       ],
-      github: 'https://github.com/reinh5678-cloud',
       linkedin: '',
       website: '',
     },
@@ -261,6 +260,9 @@ window.NEXCODE = {
     { name: 'ASP.NET Core', category: 'Backend & Cloud', symbol: '.NET', icon: 'public/images/tech/dotnet.svg', description: 'Framework web para APIs y servicios.' },
     { name: 'Python', category: 'Backend & Cloud', symbol: 'Py', icon: 'public/images/tech/python.svg', description: 'Lenguaje versátil para backend y datos.' },
     { name: 'FastAPI', category: 'Backend & Cloud', symbol: 'API', icon: 'public/images/tech/fastapi.svg', description: 'Framework moderno para construir APIs.' },
+    { name: 'NestJS', category: 'Backend & Cloud', symbol: 'Nest', description: 'Framework para aplicaciones y APIs escalables con Node.js.' },
+    { name: 'GraphQL', category: 'Backend & Cloud', symbol: 'GQL', description: 'Lenguaje de consulta para APIs flexibles.' },
+    { name: 'Redis', category: 'Backend & Cloud', symbol: 'R', description: 'Almacenamiento en memoria para caché y procesos en tiempo real.' },
 
     // Móvil
     { name: 'Flutter', category: 'Móvil', symbol: 'F', icon: 'public/images/tech/flutter.svg', description: 'Framework para apps multiplataforma.' },
@@ -277,6 +279,7 @@ window.NEXCODE = {
     { name: 'SQLite', category: 'Bases de datos', symbol: 'SQ', icon: 'public/images/tech/sqlite.svg', description: 'Base de datos ligera y embebida.' },
     { name: 'Entity Framework Core', category: 'Bases de datos', symbol: 'EF', icon: 'public/images/tech/dotnet.svg', description: 'ORM para .NET.' },
     { name: 'Alembic', category: 'Bases de datos', symbol: 'AL', description: 'Migraciones para SQLAlchemy.' },
+    { name: 'Prisma ORM', category: 'Bases de datos', symbol: 'P', description: 'ORM con tipado para aplicaciones Node.js y TypeScript.' },
 
     // Herramientas
     { name: 'Git', category: 'Herramientas', symbol: 'G', icon: 'public/images/tech/git.svg', description: 'Control de versiones distribuido.' },
@@ -290,47 +293,51 @@ window.NEXCODE = {
     { name: 'GitHub Actions', category: 'Herramientas', symbol: 'GA', icon: 'public/images/tech/githubactions.svg', description: 'CI/CD automatizado.' },
     { name: 'Linux', category: 'Herramientas', symbol: 'LX', icon: 'public/images/tech/linux.svg', description: 'Sistema operativo y servidores.' },
     { name: 'Java', category: 'Lenguajes', symbol: 'J', icon: 'public/images/tech/java.svg', description: 'Lenguaje de programación de propósito general.' },
+    { name: 'Vercel', category: 'Herramientas', symbol: '▲', description: 'Plataforma para despliegues web y automatización de entregas.' },
+    { name: 'Jest', category: 'Calidad', symbol: 'J', description: 'Framework de pruebas para JavaScript y TypeScript.' },
+    { name: 'Playwright', category: 'Calidad', symbol: 'PW', description: 'Automatización de pruebas de extremo a extremo.' },
+    { name: 'Cypress', category: 'Calidad', symbol: 'Cy', description: 'Pruebas end-to-end para aplicaciones web.' },
   ],
   faqs: [
     [
-      '¿Qué tipo de páginas web desarrollan?',
-      'La oferta puede incluir landing pages, páginas informativas, sitios corporativos y catálogos digitales. El alcance se define al conocer tu necesidad.',
+      '¿Qué tipo de proyectos y soluciones digitales desarrollan?',
+      'Desarrollamos desde landing pages de alta conversión y sitios web corporativos hasta aplicaciones web completas, aplicaciones móviles y sistemas de gestión a medida. Cada solución se concibe enfocada en el rendimiento, la experiencia de usuario (UX/UI) y la escalabilidad del negocio.',
     ],
     [
-      '¿Trabajan con pequeños negocios?',
-      'Sí. Nexcode busca acompañar a emprendedores y negocios en crecimiento con soluciones acordes al alcance de cada proyecto.',
+      '¿Trabajan con pequeñas empresas, startups y emprendedores?',
+      'Sí. Adaptamos el alcance y la metodología a la etapa de cada cliente. Ya sea que busques validar un MVP (Producto Mínimo Viable), digitalizar procesos internos o renovar la presencia digital de una empresa consolidada, estructuramos soluciones viables y con retorno claro de inversión.',
     ],
     [
       '¿Cómo solicito una cotización?',
-      'Escríbenos a nexcodepe@gmail.com. Publicaremos otros canales de contacto cuando estén confirmados.',
+      'Escríbenos a nexcodepe@gmail.com o síguenos en Instagram y TikTok para conocer nuestras novedades.',
     ],
     [
-      '¿Cómo se determina el precio?',
-      'Depende de las funcionalidades, el alcance y los requisitos. Se conversa y define antes de comenzar; no hay una tarifa publicada aún.',
+      '¿Cómo se determina el costo o presupuesto de un proyecto?',
+      'El presupuesto se calcula según la complejidad técnica, nivel de personalización de interfaz, integraciones necesarias (pasarelas de pago, APIs externas, autenticación, bases de datos) y plazos requeridos. Trabajamos con cotizaciones claras por fases o entregables, sin tarifas ocultas ni sorpresas.',
     ],
     [
-      '¿Cuánto tarda el desarrollo?',
-      'El plazo depende del alcance y se acuerda durante la planificación. No publicamos un plazo fijo sin conocer el proyecto.',
+      '¿Cuánto tiempo toma desarrollar una solución digital?',
+      'Los plazos dependen de la magnitud del proyecto: una landing page o sitio informativo toma de 1 a 2 semanas; plataformas web con catálogo o integraciones, de 3 a 5 semanas; y sistemas empresariales complejos, de 6 a 10 semanas. Desde el inicio acordamos un cronograma con fechas e hitos de entrega formales.',
     ],
     [
-      '¿Puedo pedir funcionalidades personalizadas?',
-      'Sí, las funcionalidades se revisan y priorizan en función del problema, la viabilidad y el presupuesto.',
+      '¿Puedo solicitar funcionalidades personalizadas para mi negocio?',
+      'Totalmente. No usamos plantillas rígidas ni limitaciones prefabricadas. Diseñamos la arquitectura adecuada para tus procesos específicos: paneles de administración, módulos con roles y permisos de usuario, cotizadores automatizados, flujos de reportes e integraciones con tus herramientas actuales.',
     ],
     [
-      '¿Las páginas se adaptan a móviles?',
-      'La experiencia adaptable forma parte de la propuesta de desarrollo web.',
+      '¿Las soluciones están optimizadas para dispositivos móviles?',
+      'Sí. Todo desarrollo sigue el estándar Mobile-First y diseño adaptativo integral. Garantizamos que la interfaz, botones, tipografía y navegación respondan con rapidez y fluidez en smartphones, tablets, laptops y pantallas de alta resolución.',
     ],
     [
-      '¿Puedo solicitar cambios después de la entrega?',
-      'Las mejoras posteriores se pueden conversar y acordar como parte de un alcance adicional.',
+      '¿Los desarrollos incluyen optimización SEO y seguridad web?',
+      'Sí. Cada proyecto incluye buenas prácticas de SEO técnico (estructura semántica, metadatos Open Graph, sitemap y robots.txt) y velocidad de carga optimizada (Core Web Vitals). Además, aplicamos cifrado SSL/HTTPS, validación contra vulnerabilidades web y resguardo riguroso de datos.',
     ],
     [
       '¿Ofrecen mantenimiento?',
       'La disponibilidad del servicio depende del proyecto. Escríbenos para conversar sobre tus necesidades de soporte y mantenimiento.',
     ],
     [
-      '¿Qué información necesitan para comenzar?',
-      'Una descripción del negocio, el problema que quieres resolver y las funciones que imaginas son un buen punto de partida.',
+      '¿Ofrecen servicios de soporte y mantenimiento técnico?',
+      'Sí. Contamos con esquemas de soporte continuo que abarcan monitoreo de disponibilidad, copias de seguridad periódicas, parches de seguridad, optimización de base de datos y acompañamiento técnico permanente para que tu plataforma nunca se detenga.',
     ],
-  ],
+  ]
 };

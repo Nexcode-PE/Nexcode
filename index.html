@@ -16,6 +16,12 @@
     <meta property="og:type" content="website" />
     <title>Nexcode — Tu idea, nuestra tecnología</title>
     <link rel="icon" type="image/png" href="public/images/brand/nexcode-app-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="src/config.js"></script>
     <script defer src="src/app.js"></script>
@@ -34,6 +40,18 @@
             height="137"
             decoding="async"
         /></a>
+        <nav id="primary-nav" class="primary-nav" aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a><a href="#servicios">Servicios</a
+          ><a href="#proyectos">Proyectos</a><a href="#nosotros">Nosotros</a
+          ><a href="#equipo">Equipo</a><a href="#tecnologias">Tecnologías</a
+          ><a href="#contacto">Contacto</a>
+          <a class="button button-small" href="#contacto"
+            >Solicitar cotización <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+        <button class="theme-toggle" aria-label="Cambiar a tema claro" title="Cambiar tema">
+          <span aria-hidden="true">◐</span>
+        </button>
         <button
           class="menu-toggle"
           aria-expanded="false"
@@ -42,32 +60,21 @@
         >
           <span></span><span></span>
         </button>
-        <nav id="primary-nav" class="primary-nav" aria-label="Navegación principal">
-          <a href="#inicio">Inicio</a><a href="#servicios">Servicios</a
-          ><a href="#proyectos">Proyectos</a><a href="#nosotros">Nosotros</a
-          ><a href="#equipo">Equipo</a><a href="#tecnologias">Tecnologías</a
-          ><a href="#contacto">Contacto</a>
-          <button class="theme-toggle" aria-label="Cambiar a tema claro" title="Cambiar tema">
-            <span aria-hidden="true">◐</span>
-          </button>
-          <a class="button button-small" href="#contacto"
-            >Solicitar cotización <span aria-hidden="true">↗</span></a
-          >
-        </nav>
       </div>
     </header>
     <main id="contenido">
       <section class="hero section-wrap">
         <div class="hero-copy">
-          <p class="eyebrow">
-            <span class="status-dot"></span> Desarrollo web · Apps · Soluciones digitales
-          </p>
+          <div class="hero-badge">
+            <span class="status-dot"></span>
+            <span>Disponible para nuevos proyectos · Perú & Internacional</span>
+          </div>
           <h1>
             Transformamos tus ideas en <span class="gradient-text">soluciones digitales.</span>
           </h1>
           <p class="hero-lede">
-            Creamos páginas web, aplicaciones y sistemas pensados para las necesidades reales de tu
-            negocio.
+            Desarrollamos páginas web de alto impacto, aplicaciones móviles y sistemas a medida
+            con tecnología moderna, arquitectura escalable y diseño centrado en resultados.
           </p>
           <div class="hero-actions">
             <a class="button" href="#proyectos"
@@ -76,8 +83,19 @@
               >Cuéntanos tu idea <span aria-hidden="true">→</span></a
             >
           </div>
-          <div class="hero-note">
-            <span class="note-line"></span><span>Atención cercana. Tecnología con propósito.</span>
+          <div class="hero-stats">
+            <div class="hero-stat-item">
+              <strong>100%</strong>
+              <span>Código a medida</span>
+            </div>
+            <div class="hero-stat-item">
+              <strong>Mobile-First</strong>
+              <span>Experiencias fluidas</span>
+            </div>
+            <div class="hero-stat-item">
+              <strong>Ágil</strong>
+              <span>Entregas por fases</span>
+            </div>
           </div>
         </div>
         <div class="hero-art" aria-label="Composición gráfica de interfaces digitales">

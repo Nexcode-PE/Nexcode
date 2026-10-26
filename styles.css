@@ -1181,6 +1181,10 @@ textarea {
 .site-footer {
   background: #070d18;
 }
+.site-footer .section-wrap {
+  width: calc(100% - 48px);
+  max-width: none;
+}
 .footer-main {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;

@@ -302,7 +302,7 @@ window.NEXCODE = {
     ],
     [
       '¿Cómo solicito una cotización?',
-      'Escríbenos a nexcodepe@gmail.com o visita el GitHub oficial de Nexcode. Las redes adicionales se publicarán cuando estén confirmadas.',
+      'Escríbenos a nexcodepe@gmail.com. Publicaremos otros canales de contacto cuando estén confirmados.',
     ],
     [
       '¿Cómo se determina el precio?',

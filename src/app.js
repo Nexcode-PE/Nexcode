@@ -232,9 +232,9 @@
       (t) => selectedTech === 'all' || t.category === selectedTech,
     );
     if (techEmpty) techEmpty.hidden = items.length > 0;
-    const visibleItems = mobileTech.matches && !showAllTech ? items.slice(0, 6) : items;
+    const visibleItems = showAllTech ? items : items.slice(0, 6);
     if (techMore) {
-      techMore.hidden = !mobileTech.matches || items.length <= 6;
+      techMore.hidden = items.length <= 6;
       techMore.textContent = showAllTech
         ? 'Mostrar menos tecnologías'
         : `Ver todas las tecnologías (${items.length})`;

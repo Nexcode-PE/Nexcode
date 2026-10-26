@@ -123,7 +123,13 @@ window.NEXCODE = {
         'Turborepo',
         'Vercel',
       ],
-      participants: ['Italo Bruno Ramos Sotomayor'],
+      participants: [
+        'Italo Bruno Ramos Sotomayor',
+        'Dante Jose Saravia Ramirez',
+        'Hebert Rodrigo Quiroz Aguilar',
+        'José Luis Carbajal Magallanes',
+        'Piero Alexandro Laos Saravia',
+      ],
       links: {
         demo: 'https://ushas-peru.vercel.app/',
       },

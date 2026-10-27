@@ -16,7 +16,6 @@ window.NEXCODE = {
   contact: {
     email: 'nexcodepe@gmail.com',
     whatsapp: '',
-    linkedin: '',
     github: '',
     endpoint: '/api/contact',
   },
@@ -42,6 +41,7 @@ window.NEXCODE = {
       deliverables: ['Landing pages', 'Sitios informativos y corporativos', 'Catálogos digitales'],
       image: 'public/images/services/web-development-original.png',
       imageAlt: 'Composición visual de una experiencia web personalizada',
+      brandAsset: 'public/images/brand/nexcode-logo-web.png',
     },
     {
       id: 'mobile',
@@ -63,6 +63,7 @@ window.NEXCODE = {
       ],
       image: 'public/images/services/mobile-apps-original.png',
       imageAlt: 'Composición visual de una aplicación móvil personalizada',
+      brandAsset: 'public/images/brand/nexcode-logo-mobile.png',
     },
     {
       id: 'solutions',
@@ -83,6 +84,7 @@ window.NEXCODE = {
       ],
       image: 'public/images/services/digital-solutions-original.png',
       imageAlt: 'Composición visual de un sistema digital conectado',
+      brandAsset: 'public/images/brand/nexcode-logo-solutions.png',
     },
   ],
   projects: [

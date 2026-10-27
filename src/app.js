@@ -38,6 +38,16 @@
     img.alt = s.imageAlt || `${s.name} — Nexcode`;
     img.loading = 'lazy';
     picture.append(img);
+    if (s.brandAsset) {
+      const brandLockup = el('div', 'service-brand-lockup');
+      brandLockup.setAttribute('aria-hidden', 'true');
+      const brandImage = el('img');
+      brandImage.src = s.brandAsset;
+      brandImage.alt = '';
+      brandImage.loading = 'lazy';
+      brandLockup.append(brandImage);
+      picture.append(brandLockup);
+    }
     const content = el('div', 'service-content'),
       meta = el('div', 'service-meta');
     meta.append(el('span', '', `0${i + 1}`), el('span', '', s.category));
@@ -319,7 +329,6 @@
     }
   }
   for (const [label, key] of [
-    ['LinkedIn', 'linkedin'],
     ['GitHub', 'github'],
   ])
     if (contact[key]) {
@@ -360,32 +369,6 @@
     socialLinks.append(anchor);
   });
   $('#year').textContent = new Date().getFullYear();
-  const themeButton = $('.theme-toggle'),
-    saved = localStorage.getItem('nexcode-theme');
-  if (saved === 'light') document.documentElement.dataset.theme = 'light';
-  const setThemeLabel = () =>
-    themeButton.setAttribute(
-      'aria-label',
-      document.documentElement.dataset.theme === 'light'
-        ? 'Cambiar a tema oscuro'
-        : 'Cambiar a tema claro',
-    );
-  const syncBrandLogo = () =>
-    document.querySelectorAll('[data-logo-dark]').forEach((img) => {
-      img.src =
-        document.documentElement.dataset.theme === 'light'
-          ? img.dataset.logoLight
-          : img.dataset.logoDark;
-    });
-  setThemeLabel();
-  syncBrandLogo();
-  themeButton.addEventListener('click', () => {
-    const light = document.documentElement.dataset.theme !== 'light';
-    document.documentElement.dataset.theme = light ? 'light' : 'dark';
-    localStorage.setItem('nexcode-theme', light ? 'light' : 'dark');
-    setThemeLabel();
-    syncBrandLogo();
-  });
   const toggle = $('.menu-toggle'),
     nav = $('#primary-nav');
   toggle.addEventListener('click', () => {

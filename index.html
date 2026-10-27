@@ -407,11 +407,41 @@
                   </select></label
                 ><label
                   >Presupuesto aproximado <span class="optional">opcional</span
-                  ><input
-                    name="budget"
-                    inputmode="text"
-                    placeholder="Monto y moneda, si ya lo tienes"
-                /></label>
+                  ><span class="budget-input-group"
+                    ><input
+                      name="budget"
+                      type="number"
+                      min="0.01"
+                      max="999999999"
+                      step="0.01"
+                      inputmode="decimal"
+                      placeholder="Monto"
+                      aria-label="Monto aproximado del presupuesto"
+                    /><select name="budgetCurrency" aria-label="Moneda del presupuesto" disabled>
+                      <option value="">Moneda</option>
+                      <option value="PEN">Soles (PEN)</option>
+                      <option value="USD">Dólares (USD)</option>
+                    </select></span
+                  ><span class="field-error"></span
+                ></label>
+              </div>
+              <div class="form-row contact-phone-row" id="contact-phone-field" hidden>
+                <label
+                  >Número de teléfono o WhatsApp
+                  <input
+                    name="phone"
+                    type="tel"
+                    inputmode="tel"
+                    autocomplete="tel"
+                    pattern="[+0-9() .-]{8,30}"
+                    aria-describedby="contact-phone-hint"
+                    placeholder="+51 999 999 999"
+                  />
+                  <span class="phone-hint" id="contact-phone-hint"
+                    >Incluye el código de país para poder escribirte.</span
+                  >
+                  <span class="field-error"></span>
+                </label>
               </div>
               <label
                 >Plazo deseado <span class="optional">opcional</span

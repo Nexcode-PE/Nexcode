@@ -17,6 +17,7 @@ const allowedProjectTypes = new Set([
   'Otro',
 ]);
 const allowedContactMethods = new Set(['', 'Correo electrónico', 'WhatsApp', 'LinkedIn']);
+const allowedBudgetCurrencies = new Set(['PEN', 'USD']);
 const allowedTimelines = new Set(['', 'Aún no lo sé', 'Lo antes posible', 'En 1–2 meses', 'En 3–6 meses', 'Más adelante']);
 
 export default {
@@ -62,13 +63,20 @@ export default {
       name: String(data.name || '').trim(),
       company: String(data.company || '').trim(),
       email: String(data.email || '').trim(),
+      phone: String(data.phone || '').trim(),
       projectType: String(data.projectType || '').trim(),
       preferredContact: String(data.preferredContact || '').trim(),
       budget: String(data.budget || '').trim(),
+      budgetCurrency: String(data.budgetCurrency || '').trim(),
       timeline: String(data.timeline || '').trim(),
       message: String(data.message || '').trim(),
     };
     const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email);
+    const phoneDigits = fields.phone.replace(/\D/g, '').length;
+    const phoneIsValid =
+      /^[+\d().\-\s]{8,30}$/.test(fields.phone) && phoneDigits >= 8 && phoneDigits <= 15;
+    const budgetIsValid =
+      /^\d{1,9}(?:\.\d{1,2})?$/.test(fields.budget) && Number(fields.budget) > 0;
     if (
       fields.name.length < 2 ||
       fields.name.length > 100 ||
@@ -77,7 +85,11 @@ export default {
       !emailIsValid ||
       !allowedProjectTypes.has(fields.projectType) ||
       !allowedContactMethods.has(fields.preferredContact) ||
-      fields.budget.length > 100 ||
+      (fields.preferredContact === 'WhatsApp' && !phoneIsValid) ||
+      (fields.preferredContact !== 'WhatsApp' && fields.phone.length > 0) ||
+      (fields.budget !== '' &&
+        (!budgetIsValid || !allowedBudgetCurrencies.has(fields.budgetCurrency))) ||
+      (fields.budget === '' && fields.budgetCurrency !== '') ||
       !allowedTimelines.has(fields.timeline) ||
       !fields.message ||
       fields.message.length > 3000 ||
@@ -106,9 +118,10 @@ export default {
       `Nombre: ${fields.name}`,
       `Negocio: ${fields.company || 'No indicado'}`,
       `Correo: ${fields.email}`,
+      `Teléfono / WhatsApp: ${fields.preferredContact === 'WhatsApp' ? fields.phone : 'No indicado'}`,
       `Proyecto: ${fields.projectType}`,
       `Contacto preferido: ${fields.preferredContact || 'Sin preferencia'}`,
-      `Presupuesto: ${fields.budget || 'No indicado'}`,
+      `Presupuesto: ${fields.budget ? `${fields.budget} ${fields.budgetCurrency}` : 'No indicado'}`,
       `Plazo: ${fields.timeline || 'No indicado'}`,
       '',
       'Descripción:',

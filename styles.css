@@ -1187,6 +1187,30 @@ form > label,
   grid-template-columns: 1fr 1fr;
   gap: 14px;
 }
+.contact-phone-row[hidden] {
+  display: none;
+}
+.contact-phone-row > label {
+  grid-column: 1 / -1;
+}
+.phone-hint {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 400;
+}
+.budget-input-group {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 118px;
+  gap: 8px;
+  margin-top: 7px;
+}
+.budget-input-group input,
+.budget-input-group select {
+  margin-top: 0;
+  min-width: 0;
+}
 .optional {
   font-weight: 400;
   color: var(--subtle);

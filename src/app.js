@@ -386,6 +386,31 @@
   );
   const form = $('#contact-form'),
     status = $('.form-status');
+  const preferredContact = form.elements.namedItem('preferredContact');
+  const phoneField = $('#contact-phone-field', form);
+  const phoneInput = form.elements.namedItem('phone');
+  const budgetInput = form.elements.namedItem('budget');
+  const budgetCurrency = form.elements.namedItem('budgetCurrency');
+  const syncBudgetCurrency = () => {
+    const hasBudget = budgetInput.value.trim() !== '';
+    budgetCurrency.disabled = !hasBudget;
+    budgetCurrency.required = hasBudget;
+    if (!hasBudget) budgetCurrency.value = '';
+  };
+  budgetInput.addEventListener('input', syncBudgetCurrency);
+  syncBudgetCurrency();
+  const syncPhoneField = () => {
+    const needsPhone = preferredContact.value === 'WhatsApp';
+    phoneField.hidden = !needsPhone;
+    phoneInput.required = needsPhone;
+    if (!needsPhone) {
+      phoneInput.value = '';
+      phoneInput.removeAttribute('aria-invalid');
+      phoneField.querySelector('.field-error').textContent = '';
+    }
+  };
+  preferredContact.addEventListener('change', syncPhoneField);
+  syncPhoneField();
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     form.querySelectorAll('.field-error').forEach((x) => (x.textContent = ''));
@@ -400,8 +425,12 @@
             ? 'Debes aceptar para enviar la consulta.'
             : input.validity.typeMismatch
               ? 'Ingresa un correo válido.'
+              : input.validity.patternMismatch
+                ? 'Ingresa un teléfono válido con código de país.'
+                : input.name === 'budget' || input.name === 'budgetCurrency'
+                  ? 'Indica un monto válido y elige soles o dólares.'
               : 'Completa este campo.';
-        input.parentElement
+        input.closest('label')
           .querySelector('.field-error')
           ?.replaceChildren(document.createTextNode(msg));
         input.setAttribute('aria-invalid', 'true');
@@ -430,6 +459,8 @@
         throw new Error(result.error || 'No se pudo enviar la consulta. Inténtalo más tarde.');
       }
       form.reset();
+      syncPhoneField();
+      syncBudgetCurrency();
       status.textContent = 'Consulta recibida. Gracias por escribirnos.';
     } catch (error) {
       status.textContent = error.message || 'No se pudo enviar la consulta. Inténtalo más tarde.';
@@ -440,7 +471,7 @@
   form.querySelectorAll('input,select,textarea').forEach((input) =>
     input.addEventListener('input', () => {
       input.removeAttribute('aria-invalid');
-      input.parentElement.querySelector('.field-error')?.replaceChildren();
+      input.closest('label')?.querySelector('.field-error')?.replaceChildren();
     }),
   );
 

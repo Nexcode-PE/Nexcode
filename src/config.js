@@ -137,6 +137,36 @@ window.NEXCODE = {
         website: 'https://ushas-peru.vercel.app/',
       },
     },
+    {
+      id: 'pierostock',
+      name: 'PieroStock',
+      category: 'systems',
+      categoryLabel: 'Sistema de ventas e inventario',
+      status: 'Demo interactiva',
+      image: 'public/images/projects/pierostock-dashboard.png',
+      imageAlt:
+        'Panel principal de PieroStock con resumen de ventas, mejor vendedor e inventario',
+      summary:
+        'Sistema web para administrar ventas, productos, inventario por lotes y actividad del equipo desde un panel central. La demo presenta datos ficticios.',
+      objective:
+        'Reunir el control de ventas e inventario en una interfaz clara para que el equipo pueda consultar el movimiento del negocio y registrar operaciones con facilidad.',
+      problem:
+        'El negocio necesitaba organizar productos, entradas de stock y ventas, además de identificar quién realiza cada acción dentro del sistema.',
+      solution:
+        'Se desarrolló una aplicación web con módulos para dashboard, productos, ventas, reportes, usuarios y actividad, junto con una demo navegable que no modifica datos reales.',
+      features: [
+        'Registro y consulta de ventas con detalle de productos',
+        'Control de inventario con entradas por lote y método FIFO',
+        'Seguimiento de acciones por usuario y actualización en tiempo real',
+        'Panel con productos y vendedores destacados y sugerencias estacionales de reposición',
+      ],
+      architecture:
+        'Frontend en Vue 3 y Vite, backend en Node.js y Express, persistencia en MySQL y eventos en tiempo real mediante WebSockets.',
+      technologies: ['Vue.js', 'Node.js', 'Express', 'MySQL', 'WebSockets', 'Vite'],
+      links: {
+        demo: 'https://pierostock-demo.vercel.app/',
+      },
+    },
   ],
   team: [
     {

@@ -104,6 +104,7 @@
     }
     const links = make('div', 'project-actions');
     for (const [label, url] of [
+      ['Ver demo interactiva', p.links?.demo],
       ['Visitar sitio web', p.links?.website],
       ['Repositorio público', p.links?.repository],
     ])

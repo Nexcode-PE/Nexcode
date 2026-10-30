@@ -14,7 +14,7 @@ Abre `http://localhost:4173`. Este servidor solo muestra el frontend; para proba
 
 ## Personalización
 
-Edita `src/config.js` para actualizar marca, servicios, preguntas, datos de contacto, proyectos, integrantes y tecnologías. Los arreglos de equipo, proyectos y tecnologías están vacíos para evitar publicar datos ficticios.
+Edita `src/config.js` para actualizar marca, servicios, preguntas, datos de contacto, proyectos, integrantes y tecnologías. El portafolio incluye fichas de Ushas Perú y PieroStock; añade proyectos solo con información e imágenes verificadas. Los arreglos de equipo y tecnologías deben completarse con datos confirmados.
 
 Los servicios usan `id`, `name`, `category`, `description`, `problem`, `benefits`, `deliverables`, `image` e `imageAlt`. Mantén las rutas de imágenes locales.
 

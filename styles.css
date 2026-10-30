@@ -2006,6 +2006,29 @@ textarea {
 .team-card-body {
   padding: 20px;
 }
+.project-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px 14px;
+  color: var(--subtle);
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.project-meta span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.project-meta span:first-child {
+  flex: 0 1 auto;
+  color: var(--cyan);
+}
+.project-meta span:last-child {
+  flex: 0 1 auto;
+  text-align: right;
+}
 .project-card h3,
 .team-card h3 {
   font-size: 18px;
@@ -2268,6 +2291,13 @@ textarea {
   }
   .project-cover {
     height: 180px;
+  }
+  .project-meta {
+    flex-direction: column;
+    gap: 3px;
+  }
+  .project-meta span:last-child {
+    text-align: left;
   }
   .team-photo {
     width: 130px;

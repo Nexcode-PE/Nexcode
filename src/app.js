@@ -126,7 +126,7 @@
         card.append(cover);
       }
       const body = el('div', 'project-card-body'),
-        meta = el('div', 'service-meta');
+        meta = el('div', 'project-meta');
       meta.append(
         el('span', '', p.status || p.type || 'Proyecto'),
         el('span', '', p.categoryLabel || categoryLabel(p.category)),

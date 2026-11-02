@@ -139,13 +139,13 @@ window.NEXCODE = {
     },
     {
       id: 'pierostock',
-      name: 'PieroStock',
+      name: 'ERP ligero',
       category: 'systems',
       categoryLabel: 'Sistema de ventas e inventario',
       status: 'Demo interactiva',
       image: 'public/images/projects/pierostock-dashboard.png',
       imageAlt:
-        'Panel principal de PieroStock con resumen de ventas, mejor vendedor e inventario',
+        'Panel principal de ERP ligero con resumen de ventas, mejor vendedor e inventario',
       summary:
         'Sistema web para administrar ventas, productos, inventario por lotes y actividad del equipo desde un panel central. La demo presenta datos ficticios.',
       objective:
